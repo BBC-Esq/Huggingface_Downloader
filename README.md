@@ -2,20 +2,7 @@
 
 A desktop application for browsing and downloading files from Hugging Face repositories. Built with PySide6 and the Hugging Face Hub API.
 
-## Features
-
-- **Browse repository files** with file sizes displayed for each entry
-- **Selective downloads** — check or uncheck individual files before downloading
-- **Accurate progress tracking** with per-file and overall progress bars showing bytes transferred
-- **Cancel downloads** mid-operation; files already completed are kept
-- **Partial failure resilience** — if some files fail, successfully downloaded files are preserved and you're told exactly which files failed and why
-- **Open download folder** directly from the app after downloads complete
-- **HuggingFace token authentication** for accessing gated/private repositories, with credentials saved between sessions
-- **Non-blocking UI** — file fetching, downloads, and token validation all run in background threads
-
-## Screenshot
-
-![HF Model Downloader](https://github.com/user-attachments/assets/placeholder)
+<img width="903" height="633" alt="image" src="https://github.com/user-attachments/assets/0a9a7004-69be-4612-a01e-f43216718c1d" />
 
 ## Requirements
 
