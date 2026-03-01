@@ -60,8 +60,8 @@ def format_size(size_bytes):
 class DownloadSignals(QObject):
     success = Signal(str, str)
     error = Signal(str, list)
-    file_progress = Signal(int, int, str, int, int)
-    byte_progress = Signal(int, int)
+    file_progress = Signal(int, int, str, object, object)
+    byte_progress = Signal(object, object)
     cancelled = Signal()
 
 
@@ -77,6 +77,11 @@ class AuthSignals(QObject):
 class ProgressTqdm(tqdm):
     def __init__(self, *args, signal=None, **kwargs):
         self._signal = signal
+        kwargs.pop("name", None)
+        # Always redirect tqdm output to devnull in the GUI app,
+        # since sys.stderr may be None (e.g. pythonw.exe on Windows)
+        if kwargs.get("file") is None or sys.stderr is None:
+            kwargs["file"] = open(os.devnull, "w")
         super().__init__(*args, **kwargs)
 
     def update(self, n=1):
